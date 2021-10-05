@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlatformService } from 'src/app/services/platform.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   showNumberCard = false;
 
-  constructor() { }
+  constructor(public platformService: PlatformService) { }
 
   ngOnInit(): void {
   }
