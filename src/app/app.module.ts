@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { PromptComponent } from './components/prompt/prompt.component';
 import { PwaService } from './services/pwa.service';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
 
 const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt();
 
@@ -36,12 +37,14 @@ const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt()
     ReactiveFormsModule,
     MaterialModule,
     FlexLayoutModule,
+    GooglePayButtonModule,
     MatIconModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production, registrationStrategy: 'registerWhenStable:30000'
     }),
     BrowserAnimationsModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [
     {provide: APP_INITIALIZER, useFactory: initializer, deps: [PwaService], multi: true}
   ],
