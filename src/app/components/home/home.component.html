@@ -21,7 +21,7 @@
                     <span class="logo-box"><img src="../assets/img/logo.png" alt="logo" align="right"></span>
                 </div>
                 <div class="card__number" [ngClass]="{'display_card':!showNumberCard}">
-                    4232 1111 1111 1111</div>
+                    {{creditCardNum}}</div>
                 <div class="card__expiry-date" [ngClass]="{'display_card':!showNumberCard}">
                     10/17</div>
                 <div class="card__owner" [ngClass]="{'display_card':!showNumberCard}">Jane Doe</div>
@@ -82,5 +82,9 @@
 
             <!-- </div> -->
             <button mat-raised-button class="btn-card-number" (click)="toggleCard()">View Card Numbers</button>
+
+            <button mat-raised-button class="btn-card-number" (click)="copyToClipboard()">Copy To Clipboard</button>
+
+
         </div>
-    </div>
+    </div>  

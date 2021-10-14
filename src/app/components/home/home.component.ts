@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlatformService } from '../../services/platform.service';
+import { ClipboardService } from 'ngx-clipboard';
+
 
 @Component({
   selector: 'app-home',
@@ -9,14 +11,21 @@ import { PlatformService } from '../../services/platform.service';
 export class HomeComponent implements OnInit {
 
   showNumberCard = false;
+  creditCardNum = "4232 1111 1111 1111";
 
-  constructor(public platformService: PlatformService) { }
+  constructor(public platformService: PlatformService,
+    private clipboardApi: ClipboardService
+    ) { }
 
   ngOnInit(): void {
   }
 
   toggleCard(): void {
     this.showNumberCard = !this.showNumberCard;
+  }
+
+  copyToClipboard() {
+    this.clipboardApi.copyFromContent(this.creditCardNum)
   }
 
   onLoadPaymentData = (
