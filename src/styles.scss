@@ -1,9 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome.scss';
+html,
+body {
+    height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 a {
     text-decoration: none;
@@ -18,4 +25,11 @@ ul {
 .mat-bottom-sheet-container {
     padding: 7px 16px !important;
     min-width: 27vw !important;
+}
+
+.gpay-button.short,
+.gpay-button.plain {
+    min-width: 92px !important;
+    width: 323px !important;
+    line-height: 19px !important;
 }

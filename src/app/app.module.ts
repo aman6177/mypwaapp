@@ -19,6 +19,8 @@ import { PromptComponent } from './components/prompt/prompt.component';
 import { PwaService } from './services/pwa.service';
 import { GooglePayButtonModule } from '@google-pay/button-angular';
 import { ClipboardModule } from 'ngx-clipboard';
+import { NgWalletModule } from 'ng-wallet';
+
 
 const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt();
 
@@ -41,6 +43,7 @@ const initializer = (pwaService: PwaService) => () => pwaService.initPwaPrompt()
     GooglePayButtonModule,
     ClipboardModule,
     MatIconModule,
+    NgWalletModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production, registrationStrategy: 'registerWhenStable:30000'
     }),
